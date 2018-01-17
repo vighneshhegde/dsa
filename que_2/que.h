@@ -10,8 +10,6 @@ typedef struct node{
 	Element e;
 	struct node* next;
 }node;
-
-
   
 typedef struct{
 	node* head;

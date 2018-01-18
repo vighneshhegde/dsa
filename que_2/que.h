@@ -4,7 +4,12 @@
 
 typedef enum { false, true } Boolean;
 
-typedef int Element;
+typedef struct{
+
+	long a;
+	int b;
+
+} Element;
 
 typedef struct node{
 	Element e;
@@ -24,4 +29,3 @@ Element front(Queue q); // returns the element from the front of the Queue;
 Queue addQ(Queue q , Element e); // adds e to the rear of the Queue; returns the modified Queue
 int lengthQ(Queue q); // returns the length of the Queue
 
-void traverse(Queue q);//prints queue in order

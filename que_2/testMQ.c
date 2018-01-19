@@ -1,5 +1,6 @@
 #include"mque.h"
 #include<ctype.h>
+#include<sys/time.h>
 
 int extractNumber(char* str){//to extract inputsize. Unnecessary, but was fun
 	int i=0,j=0;
@@ -36,14 +37,31 @@ void testDel(MultiQ* mq, int num){
 
 int main(int argc, char** argv){//input file given as command line argument
 
-	FILE *f = fopen(argv[1], "r");
+//	struct timeval t1, t2;
+//	double elapsedTime;
+	FILE *f = fopen("input10.txt", "r");
 //	int size = extractNumber(argv[1]);
 	//printMQ(mq);
+// start timer
+//gettimeofday(&t1, NULL);
 	MultiQ mq = loadFile(f);
-	printf("%d\n",sizeMQ(mq));
+// stop timer
+//gettimeofday(&t2, NULL);
 	printMQ(mq);
 	delNextMQ(&mq);
 	testDel(&mq,5);
-	printTask(nextMQ(mq));
+// compute and print the elapsed time in millisec
+//elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
+//elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
+//printf("Total time is %f ms.\n",elapsedTime);
+
+
+
+
+
+
+
+
+
 	return 0;
 }

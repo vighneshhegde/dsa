@@ -16,41 +16,40 @@ Boolean isEmptyQ(Queue q){
 	else{return false;}
 }
 
-Queue delQ(Queue q){
-	if(q.length==0){
+void delQ(Queue* q){
+	if(q->length==0){
 		printf("can't delete from an empty queue\n");
-		return q;
 	}
 	//free memory??
-	if(q.length==1){
-		return newQ();
+	else if(q->length==1){
+		*q = newQ();
 	}
-	q.head = q.head->next;
-	q.length--;
-	return q;
+	else{
+		q->head = q->head->next;
+		q->length--;
+	}
 }
 
 Element front(Queue q){
 	return q.head->e;
 }
 
-Queue addQ(Queue q, Element e){//add in the end using the tail
+void addQ(Queue *q, Element e){//add in the end using the tail
 	node* new = (node*)malloc(sizeof(node));
 	new->e = e;
 	new->next = NULL;
-	if(isEmptyQ(q)){
-		q.head = new;
+	if(isEmptyQ(*q)){
+		q->head = new;
 //		printf("%d", e);
 //		printf("empty\n");
-		q.tail = new;
-		q.length++;
-		return q;
+		q->tail = new;
+		q->length++;
 	}
-
-	q.tail->next = new;
-	q.tail = q.tail->next;
-	q.length++;
-	return q;
+	else{
+		q->tail->next = new;
+		q->tail = q->tail->next;
+		q->length++;
+	}
 }
 
 int lengthQ(Queue q){

@@ -4,12 +4,15 @@
 
 typedef enum { false, true } Boolean;
 
+typedef long int TaskID;
+typedef int Priority;
+
 typedef struct{
+	TaskID tid;
+	Priority p;
+}Task;
 
-	long a;
-	int b;
-
-} Element;
+typedef Task Element; 
 
 typedef struct node{
 	Element e;
@@ -24,8 +27,8 @@ typedef struct{
 
 Queue newQ(); // returns an empty Queue
 Boolean isEmptyQ(Queue q); // tests whether q is empty
-Queue delQ(Queue q); // deletes the element from the front of the Queue; returns the modified Queue
+void delQ(Queue* q); // deletes the element from the front of the Queue; returns the modified Queue
 Element front(Queue q); // returns the element from the front of the Queue;
-Queue addQ(Queue q , Element e); // adds e to the rear of the Queue; returns the modified Queue
+void addQ(Queue *q , Element e); // adds e to the rear of the Queue; returns the modified Queue
 int lengthQ(Queue q); // returns the length of the Queue
 

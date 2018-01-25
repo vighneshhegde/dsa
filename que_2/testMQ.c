@@ -48,9 +48,11 @@ int main(int argc, char** argv){//input file given as command line argument
 // stop timer
 //gettimeofday(&t2, NULL);
 	printMQ(mq);
-	sleep(10);
+	//sleep(10);
 	delNextMQ(&mq);
-	testDel(&mq,5);
+	testDel(&mq,50);
+	printMQ(mq);
+
 // compute and print the elapsed time in millisec
 //elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
 //elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;

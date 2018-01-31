@@ -11,7 +11,7 @@ list* createList(int n){
 	int i;
 	if(n>=1){
 		ls->head = (node*)myalloc(sizeof(node));
-		ls->head->e = rand()%100;
+		ls->head->e = rand()%1000;
 		ls->tail = ls->head;
 		ls->tail->next = NULL;
 		ls->length++;
@@ -20,7 +20,7 @@ list* createList(int n){
 	for(i=1;i<n;i++)
 	{
 		current->next = (node*)myalloc(sizeof(node));
-		current->next->e=rand()%100;
+		current->next->e=rand()%1000;
 		current=current->next;
 		ls->length++;
 		ls->tail = current;
@@ -31,10 +31,11 @@ list* createList(int n){
 
 void createCycle(list* ls){
 	
-	srand(time(NULL));
+	srand(time(NULL)+1);
 	if(rand()%2){
 		node* current = ls->head;
-		int r = rand()%100;
+		int r = rand()%1000;
+		printf("%d",r);
 		while(current->e != r){
 			current= current->next;
 		}
@@ -42,7 +43,6 @@ void createCycle(list* ls){
 	}
 }
 
-//bool isSameNode(node* n1, node* n2)
 
 node** advance(node** current){
 	if(*current!=NULL)
@@ -109,6 +109,7 @@ void makeCircular(list* ls){
 	node *temp;
 	node *newhead = ls->tail->next;
 	while(ls->head!=newhead){
+//		printf("d");
 		temp = ls->head;
 		ls->head = ls->head->next;
 		myfree(temp);

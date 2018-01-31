@@ -1,18 +1,21 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 #ifndef ELEMENT
-typedef int Element;
+typedef struct{
+	int e;
+}Element;
 #endif
 
 typedef struct node{
 	Element e;
-	struce node* next;
+	struct node* next;
 }node;
 
 typedef struct{
 	node* head;
 	node* tail;
-	int size;
+	int length;
 }list;
 
 

@@ -3,8 +3,9 @@
 #include<unistd.h>
 
 int main(){
-	int m=1858992000;
+	int m=100000;
 	int* a;
+	total_mem = 0;
 	srand(time(NULL));
 	do{	
 //		printf("%lu\n", total_mem);
@@ -12,11 +13,11 @@ int main(){
 		
 		a = (int*)myalloc(m*sizeof(int));
 		if(a==NULL){
-		printf("max memory = %lu\n",total_mem);
-		break;
+			printf("max memory = %lu\n",total_mem);
+			break;
 		}
 		printf("%p, %p, %d, %lu\n", a, (a+m-1), m, total_mem);
-//		myfree(a);
+		myfree(a);
 //		printf("%lu\n", total_mem);
 		m+=15000;
 	}while(a!=NULL);

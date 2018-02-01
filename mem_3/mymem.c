@@ -3,7 +3,7 @@
 size_t total_mem = 0;
 
 void* myalloc(size_t size){
-	void* mem = malloc(size+sizeof(size_t));
+	void* mem = calloc(1,size+sizeof(size_t));
 	if(mem== NULL) return mem;
 	total_mem += size;
 	*(size_t*)mem = size;

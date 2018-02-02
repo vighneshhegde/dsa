@@ -18,6 +18,8 @@ record* newRecord();
 
 record** recArray(record** rarr, int n);
 void readFile(FILE *f, record** r);
-void printRecord(record* r);
+void printRecord(FILE* f,record* r);
 
 void insertInOrder(record** r, int size, record* rec);
+void insertionSort(record** r, int size);
+void printList(FILE* f,record* r[], int size);

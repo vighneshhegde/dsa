@@ -4,6 +4,6 @@ record: record.o recordTest.o
 recordTest.o: recordTest.c
 	gcc -g -pg -c recordTest.c -o recordTest.o
 
-record.o: record.c
+record.o: record.c record.h
 	gcc -g -pg -c record.c -o record.o
 

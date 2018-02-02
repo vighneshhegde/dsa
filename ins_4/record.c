@@ -1,42 +1,58 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include"record.h"
 
-typedef struct{
-	int month;
-	int year;
-}date;
-
-typedef struct{
-	long unsigned int cnum;
-	char* bcode;
-	date exp;
-	char* fname;
-	char* lname;
-}record;
-
-void readFromFile(FILE* f, record *r){
-	int i = 0;
-	while(fscanf(f,"\"%lu,%s,%d/%d,%s,%s\"",r[i]->cnum,r[i]->bcode,r[i]->exp->month,r[i]->exp->year,r[i]->fname,r[i]->lname)!=EOF){
-		i++;
-	}
-	
-	
-}
-
-record newRecord(){
-	record *r = (record*)malloc(sizeof(record));
+record* newRecord(){
+	record* r = (record*)malloc(sizeof(record));
 	r->bcode = (char*)malloc(5*sizeof(char));
 	r->fname = (char*)malloc(5*sizeof(char));
 	r->lname = (char*)malloc(5*sizeof(char));
+
+	return r;
+}
+record** recArray(record** rarr, int n){
+	rarr = (record**)realloc(rarr,n*sizeof(record*));
+}
+
+void readFile(FILE *f, record** r){
 	
-	return *r;
-}
+	int i=0;
+	for(i=0;!feof(f);i++){
+	fscanf(f,"\"%lu,%[^,],%d/%d,%[^,],%[^\"]\"\n",&r[i]->cnum,r[i]->bcode,&r[i]->exp.month,&r[i]->exp.year,r[i]->fname,r[i]->lname);
+//	printf("%s",r[i]->bcode);
 
-record* newArray(int n){
-	record *r;
-	int i;
-	for(i=0;i<n;i++){
-		r[i] = newRecord();
+//	printRecord(r[i]);
 	}
+
+//	while(fscanf(f,"\"%lu,%[^,],%d/%d,%[^,],%[^\"]\"\n",&r[i]->cnum,r[i]->bcode,&r[i]->exp.month,&r[i]->exp.year,r[i]->fname,r[i]->lname)){
+//		i++;	
+//	}
 }
 
+void printRecord(FILE*f,record* r){
+	fprintf(f,"\"%lu,%s,%d/%d,%s,%s\"\n",r->cnum,r->bcode,r->exp.month,r->exp.year,r->fname,r->lname);
+}
+
+void insertInOrder(record** r, int size, record* rec){
+
+//	r = (record**)realloc(r,(size+1)*sizeof(record*));
+	int i;
+	for(i=size; i>0 && rec->cnum<r[i-1]->cnum; i--) {
+		r[i]=r[i-1];
+	}
+	r[i] = rec;
+}
+
+void insertionSort(record** r, int size){
+	if(size <= 1) return;
+	insertionSort(r,size-1);
+	record* temp = r[size-1];
+	insertInOrder(r,size-1,temp);
+
+}
+
+void printList(FILE *f,record* r[], int size){
+	int i;	
+	for(i=0;i<size;i++){
+		printRecord(f, r[i]);
+	}
+//	printf("\n");
+}

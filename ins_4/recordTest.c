@@ -1,8 +1,8 @@
 #include"record.h"
 
 int main(int argc, char** argv){
-	FILE *f = fopen("10","r");
-	int n = 10;//atoi(argv[1]);
+	FILE *f = fopen("output1","r");
+	int n = atoi(argv[1]);
 	record** r = recArray(NULL,n);
 	int i;
 	for(i=0;i<n;i++){
@@ -14,14 +14,12 @@ int main(int argc, char** argv){
 	
 	readFile(f, r);
 	fclose(f);
-	for(i=0;i<n;i++){
-		printRecord(r[i]);
-	}
-	record* r1 = newRecord();
-	r1 = r[3];
-	insertInOrder(r,10,r1);
-//	for(i=0;i<n+1;i++){
+//	for(i=0;i<n;i++){
 //		printRecord(r[i]);
 //	}
-
+	insertionSort(r,n);
+	
+	FILE  *f2 = fopen("outpu1","w");
+	printList(f2, r, n);
+	fclose(f2);
 }

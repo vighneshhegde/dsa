@@ -1,11 +1,11 @@
 # Ignore all
-*
+#*
 
 # Unignore all with extensions
-!*.*
+#!*.*
 
 # Unignore all dirs
-!*/
+#!*/
 
 # Unignore all makefiles
 !Makefile
@@ -19,6 +19,7 @@
 *.o
 *.obj
 *.swp
+*.swo
 
 # Precompiled Headers
 *.gch

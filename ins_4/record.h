@@ -20,6 +20,7 @@ record** recArray(record** rarr, int n);
 void readFile(FILE *f, record** r);
 void printRecord(FILE* f,record* r);
 
-void insertInOrder(record** r, int size, record* rec);
+void insertInOrderIter(record** r, int size, record* rec);
+void insertInOrderRec(record** r, int size, record* rec);
 void insertionSort(record** r, int size);
 void printList(FILE* f,record* r[], int size);

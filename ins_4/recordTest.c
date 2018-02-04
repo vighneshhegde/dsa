@@ -1,7 +1,11 @@
 #include"record.h"
+#include<time.h>
 
 int main(int argc, char** argv){
-	FILE *f = fopen("output1","r");
+	struct timeval t1, t2;
+	double elapsedTime;	
+
+	FILE *f = fopen(argv[1],"r");
 	int n = atoi(argv[1]);
 	record** r = recArray(NULL,n);
 	int i;
@@ -14,12 +18,23 @@ int main(int argc, char** argv){
 	
 	readFile(f, r);
 	fclose(f);
-//	for(i=0;i<n;i++){
-//		printRecord(r[i]);
-//	}
+	// start timer
+	gettimeofday(&t1, NULL);
+	// do something or call a function
+	// ...
+
 	insertionSort(r,n);
 	
-	FILE  *f2 = fopen("outpu1","w");
+	
+	// stop timer
+	gettimeofday(&t2, NULL);
+	// compute and print the elapsed time in millisec
+	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
+	elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
+	printf("Total time is" + elapsedTime + "ms.\n");
+	// sec to ms
+	// us to ms
+	FILE  *f2 = fopen(argv[2],"w");
 	printList(f2, r, n);
 	fclose(f2);
 }

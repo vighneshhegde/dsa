@@ -31,11 +31,22 @@ void printRecord(FILE*f,record* r){
 	fprintf(f,"\"%lu,%s,%d/%d,%s,%s\"\n",r->cnum,r->bcode,r->exp.month,r->exp.year,r->fname,r->lname);
 }
 
-void insertInOrder(record** r, int size, record* rec){
+void insertInOrderRec(record** r, int size, record* rec){
 
 //	r = (record**)realloc(r,(size+1)*sizeof(record*));
+	if(size==1){
+		r[0] = rec;
+		return;
+	}
+	if(r[size-2]->cnum>rec->cnum){
+		r[size-1]=r[size-2];
+		insertInOrderRec(r,size-1,rec);
+	}
+	else r[size-1] = rec;
+}
+void insertInOrderIter(record** r, int size, record* rec){
 	int i;
-	for(i=size; i>0 && rec->cnum<r[i-1]->cnum; i--) {
+	for(i=size-1; i>0 && rec->cnum<r[i-1]->cnum; i--) {
 		r[i]=r[i-1];
 	}
 	r[i] = rec;
@@ -45,7 +56,7 @@ void insertionSort(record** r, int size){
 	if(size <= 1) return;
 	insertionSort(r,size-1);
 	record* temp = r[size-1];
-	insertInOrder(r,size-1,temp);
+	insertInOrderRec(r,size,temp);
 
 }
 

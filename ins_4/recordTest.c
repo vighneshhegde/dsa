@@ -1,5 +1,5 @@
 #include"record.h"
-#include<time.h>
+#include<sys/time.h>
 
 int main(int argc, char** argv){
 	struct timeval t1, t2;
@@ -31,7 +31,7 @@ int main(int argc, char** argv){
 	// compute and print the elapsed time in millisec
 	elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;
 	elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;
-	printf("Total time is" + elapsedTime + "ms.\n");
+	printf("Total time is %f ms.\n", elapsedTime);
 	// sec to ms
 	// us to ms
 	FILE  *f2 = fopen(argv[2],"w");

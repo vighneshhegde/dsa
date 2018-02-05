@@ -56,7 +56,7 @@ void insertionSort(record** r, int size){
 	if(size <= 1) return;
 	insertionSort(r,size-1);
 	record* temp = r[size-1];
-	insertInOrderRec(r,size,temp);
+	insertInOrderIter(r,size,temp);
 
 }
 

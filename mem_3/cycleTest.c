@@ -9,13 +9,12 @@ int main(int argc, char** argv){
 	printf("%d\n",testCyclic(ls));//1 if true
 //	printf("%d\n",linkRev(ls));//1 if true
 	
-	
-	printf("%ld\n",total_mem);
+	printMem();
 	makeCircular(ls);
 
 	//printList(ls);
 
-	printf("%ld\n",total_mem);
+	//printf("%ld\n",total_mem);
 	
 	return 0;
 }

@@ -16,3 +16,8 @@ void myfree(void * ptr){
 	free(ptr-sizeof(size_t));
 //	free(ptr);
 }
+
+void printMem(){
+	
+	printf("%ld\n",total_mem);
+}

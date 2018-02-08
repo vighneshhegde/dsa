@@ -6,4 +6,5 @@ void printArray(int* arr, int n);
 void quicksort(record** Ls, int st, int en);
 void swap(record** a, record** b);
 int partition(record** Ls, int st, int en, int p);
+int partitionLoc(record** Ls, int st, int en, int p);
 

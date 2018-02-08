@@ -8,7 +8,7 @@ int* createArray(int n){
 	int i;
 	srand(time(NULL));
 	for(i=0; i<n; i++){
-		arr[i] = rand()%4;
+		arr[i] = rand()%9;
 	}
 	return arr;
 }
@@ -22,7 +22,8 @@ void printArray(int* arr, int n){
 void quicksort(int* Ls, int st, int en){
 	if(st<en){
 		int p = st+rand()%(en-st);// pivot(st, en);
-		p =  partition(Ls, st, en, p);
+		p =  partitionLoc(Ls, st, en, p);
+		//printf("%d\n", &p);
 		quicksort(Ls, st, p-1);
 		quicksort(Ls, p+1, en);
 	}
@@ -52,4 +53,21 @@ int partition(int* Ls, int st, int en, int p){
 
 	swap(&Ls[st], &Ls[p]);
 	return p;
+}
+int partitionLoc(int Ls[], int st, int en, int p){
+	int k = Ls[p];
+	//printf("%d,%d\n",p,k);
+	swap(&Ls[p], &Ls[st]);
+	int md = st, bdry = st+1;
+	while(bdry<=en){
+		if(Ls[bdry]>k){bdry++;}
+		else{
+			swap(&Ls[bdry], &Ls[md+1]);
+			//printf("%d\n",bdry);
+			md++;
+			bdry++;
+		}
+	}
+	swap(&Ls[st], &Ls[md]);
+	return md;	
 }

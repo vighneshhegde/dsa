@@ -1,21 +1,26 @@
 #include"merge.h"
 
 int main(){
-	int n = 5;
-	student** arr = createArray(n);
+	int k = 4;
+//	student** arr = createArray(n);
 	
-	FILE *f = fopen("5.txt", "r");
+	FILE *f = fopen("8.txt", "r");
 
-	readfile(f,arr,n);
+//	readfile(f,arr,n);
 	//printArray(arr, n);
 
 //	student** mrg = createArray(n+n);
 	
 //	merge(arr,n,arr,n,mrg);
 
-	mergeSort(arr, 0, n-1);
+//	mergeSortIter(arr, 0, n-1);
+	int nbk = storeK(f, k);
 
-	printArray(arr, n);
+//	printf("%s", itostr(1));
+	mergeFiles(0,1);
+
+
+//	printArray(arr, n);
 
 
 }

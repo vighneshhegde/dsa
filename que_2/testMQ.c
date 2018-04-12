@@ -50,7 +50,7 @@ int main(int argc, char** argv){//input file given as command line argument
 	printMQ(mq);
 	//sleep(10);
 	delNextMQ(&mq);
-	testDel(&mq,50);
+	//testDel(&mq,50);
 	printMQ(mq);
 
 // compute and print the elapsed time in millisec

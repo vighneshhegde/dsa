@@ -21,12 +21,12 @@ typedef struct node
 typedef struct {
 	node* root;
 	int height;
-}AVL;
+}BTree;
 
 int rgen();
 
 
-AVL* createTree();
+BTree* createTree();
 node* createNode(Element e);
 int add(BTree* bt, Key k);
 node* find(BTree* bt, Key k);

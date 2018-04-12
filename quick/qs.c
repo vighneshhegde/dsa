@@ -58,7 +58,7 @@ int partitionLoc(int Ls[], int st, int en, int p){
 	int k = Ls[p];
 	//printf("%d,%d\n",p,k);
 	swap(&Ls[p], &Ls[st]);
-	int md = st, bdry = st+1;
+	int md = st, bdry = st+1;//st to md is all elements<k, md+1 to bdry is all >k, and bdry+1 onwards unsorted
 	while(bdry<=en){
 		if(Ls[bdry]>k){bdry++;}
 		else{

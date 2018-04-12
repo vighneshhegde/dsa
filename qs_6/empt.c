@@ -13,7 +13,7 @@ int main(){
 	
 //	insertionSort(arr,n);
 	quicksortIter(arr, 0, n-1);
-	printArray(arr, n);
+//	printArray(arr, n);
 
 	return 0;
 }

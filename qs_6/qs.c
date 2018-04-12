@@ -19,26 +19,24 @@ void quicksortIter(Element* Ls, int st, int en){
 	int top = -1;
 	stack[++top] = st;
 	stack[++top] = en;
+//put cutoff here`
 
 	while(top>=0){
-		en = stack[--top];
-		st = stack[--top];
+		en = stack[top--];
+		st = stack[top--];
 
-		int p = st+rand()%(en-st);// pivot(st, en);
-		p =  partition(Ls, st, en, p);
-		//printf("%d\n", &p);
+
+		while(st<en){
+			int p = st+rand()%(en-st);// pivot(st, en);
+			p =  partition(Ls, st, en, p);
+			printf("%d\n", p);
 		stack[++top] = st;
 		stack[++top] = p-1;
-		//quicksort(Ls, st, p-1);
-		//quicksort(Ls, p+1, en);
+			st = p+1;
+		}
 	}
+	printArray(Ls, 10);
 	
-	while(st<en){
-		int p = st+rand()%(en-st);// pivot(st, en);
-		p =  partition(Ls, st, en, p);
-		//printf("%d\n", &p);
-		st = p+1;
-	}
 }
 
 void swap(Element* a, Element* b){

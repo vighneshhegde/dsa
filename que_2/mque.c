@@ -30,7 +30,7 @@ MultiQ createMQ(int num){
 	MultiQ* mq = (MultiQ*)malloc(sizeof(MultiQ)); 
 	mq->qs = (Queue*)malloc(num*sizeof(Queue));
 	int i;
-	for (i=0;i<num;i++) mq->qs[i] = newQ();
+	//	for (i=0;i<num;i++) mq->qs[i] = newQ();
 	mq->num = num;
 	return *mq;
 

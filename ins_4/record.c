@@ -32,6 +32,7 @@ void printRecord(FILE*f,record* r){
 }
 
 void insertInOrderIter(record** r, int size, record* rec){
+//assuming extra space is there in r in the end
 	int i;
 	for(i=size-1; i>0 && rec->cnum<r[i-1]->cnum; i--) {
 		r[i]=r[i-1];

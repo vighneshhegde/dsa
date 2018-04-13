@@ -1,9 +1,11 @@
 #include"topo.h"
 
 int main(){
-	FILE *f = fopen("graph1.txt", "r");
+	FILE *f = fopen("citation1.txt", "r");
 	Graph g = readFile(f);
 	printg(g);
+
+	//printf("%d", isAdjacent(g, &g->V[0], &g->V[1]));
 
 	vert* sorted = topoSort(g);
 	int i;

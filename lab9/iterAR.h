@@ -1,23 +1,26 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
 #ifndef ELEM
 #define ELEM
-typedef void* Element;
+typedef struct element* Element;
 #endif
 
 typedef enum{false,true} bool;
 
-/*
+#ifdef ARRAY
 typedef struct{
 	Element* arr;
 	int index;
 	int size; 
 }Iterator;
+#endif
 
-*/
-
-typedef Element* Iterator;
+#ifdef LL
+#include"linklist.h"
+typedef list Iterator;
+#endif
 
 bool hasMore(Iterator it);
 

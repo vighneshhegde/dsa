@@ -1,13 +1,14 @@
+#include"iterAR.h"
 
 typedef struct {
 	int val;
-	struct node** it;
-}node;
+	Iterator it;
+}ntree;
 
+/*
 #define ELEM
 typedef node* Element;
-
-#include"iter.h"
+*/
 
 
 typedef node* Tree;

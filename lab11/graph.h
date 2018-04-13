@@ -4,13 +4,13 @@
 typedef struct{
 	int val;
 	int indeg;
-	int visited:1;//0 if no, 1 if yes.
+	int visited:2;//0 if no, 1 if yes.
 }vert;
 
 typedef struct{
 	vert* from;
 	vert* to;
-	int visited:1;
+	int visited:2;
 }edge;
 
 #define ELEMENT

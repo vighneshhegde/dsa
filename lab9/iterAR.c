@@ -1,6 +1,6 @@
+#define ARRAY
 #include"iter.h"
 
-/*
 Iterator CreateIter(int n){
 	Iterator* it = (Iterator*)malloc(sizeof(Iterator));
 	it->arr = (Element*)calloc(n*sizeof(Element));
@@ -18,9 +18,9 @@ Element getNext(Iterator it){
 		return it.arr[it.index++];
 	}
 	else return NULL;
-}*/
+}
 
-
+/*
 bool hasNext(Iterator it){
 	if(it!=NULL) return true;
 	else return false;
@@ -34,3 +34,4 @@ Element getNext(Iterator* it){
 	}
 	return NULL;
 }
+*/

@@ -16,7 +16,7 @@ Graph createGraph(){
 	g->nv = 0;
 	g->ne = 0;
 	
-	g->V = (vert*) malloc(8*sizeof(vert));
+	g->V = (vert*) malloc(2300*sizeof(vert));
 	g->Elist = newlist();
 
 	return g;

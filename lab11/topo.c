@@ -14,11 +14,9 @@ Graph markEdges(Graph g,vert* v){
 
 Graph markVert(Graph g, vert* v){
 	int i;
-	for(i=0;g->V[i].visited==0 && i<g->nv;i++){
-		if(g->V[i].val==v->val){
-			g->V[i].visited = 1;
-		}
-		if(isAdjacent(g,&g->V[i],v)){
+	v->visited = 1;
+	for(i=0;i<g->nv;i++){
+		if(isAdjacent(g,v,&g->V[i])==1){
 			g->V[i].indeg--;
 		}
 	}
@@ -40,17 +38,16 @@ vert* topoSort(Graph g){
 	int cnt = 0,i;
 	vert* sorted = (vert*)calloc(g->nv,sizeof(vert));
 	while(cnt<g->nv){
-		for(i = 0;g->V[i].visited==0 && i<g->nv;i++){
-			if(g->V[i].indeg==0){
+		for(i = 0;i<g->nv;i++){
+			if(g->V[i].visited==0 && g->V[i].indeg==0){
 				markVert(g, &g->V[i]);
 				markEdges(g,&g->V[i]);
 				sorted[cnt++]=g->V[i];
-				printf(".%d ",g->V[i].val);
+			//	printf(".%d ",g->V[i].val);
 				continue;
 			}
-				printf(",%d ",g->V[i].val);
+			//	printf(",%d ",g->V[i].val);
 		}
 	}
 		return sorted;	
-
 }

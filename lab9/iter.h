@@ -1,28 +1,32 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
-#ifndef ELEM
-#define ELEM
+#ifndef ELEMENT
+#define ELEMENT
 typedef struct element* Element;
 #endif
 
 typedef enum{false,true} bool;
 
 #ifdef ARRAY
-typedef struct{
+typedef struct iter{
 	Element* arr;
 	int index;
 	int size; 
-}Iterator;
+}iter;
+
+typedef iter* Iterator;
 #endif
 
 #ifdef LL
 #include"linklist.h"
-typedef list Iterator;
+typedef list* Iterator;
 #endif
 
 bool hasMore(Iterator it);
 
-Element getNext(Iterator* it);
+Element getNext(Iterator it);
 
+Iterator createIter(int n);
+
+void insert(Iterator it, Element e);

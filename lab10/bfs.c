@@ -1,9 +1,11 @@
+#define ADJLIST
 #include"graph.h"
 #include"que.h"
 
 
 int bfs(Graph g, vert v){
 	if(g->nv<=0)return 0;
+	
 	int i;
 
 	Queue q = newQ();

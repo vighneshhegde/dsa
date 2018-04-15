@@ -1,9 +1,15 @@
 #include"nary.h"
 
-Tree createTree(int chilNo){
-	Tree t = (Tree)malloc(sizeof(node));
+Tree createTree(int chilNo, int maxh){
+	Tree t = (Tree)malloc(sizeof(ntree));
 	t->val = rand()%10;
-	t->it = (Iterator)malloc(chilNo*sizeof(Tree));
+	t->it = createIter(chilNo);
+	int i;
+	if(maxh==0) return NULL;	
+	for(i=0;i<chilNo; i++){
+		insert(t->it, createTree(chilNo, maxh-1));
+		printf("%d ",t->it->index);
+	}
 }
 
 bool isEmptyTree(Tree t){

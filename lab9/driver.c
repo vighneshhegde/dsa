@@ -2,7 +2,10 @@
 
 int main(){
 	srand(8);
-	Tree t = createTree(5);
+	Tree t = createTree(3,3);
+	Set s = newSet();
+//	push(s, getChildren(t));
+	/*
 	int i;
 	Element temp;
 	for(i=0;i<5;i++){
@@ -16,5 +19,5 @@ int main(){
 	}
 
 	printf("%d ",getRootVal(t));
-	return 0;
+	return 0;*/
 }

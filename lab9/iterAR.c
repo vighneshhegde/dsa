@@ -1,21 +1,27 @@
 #define ARRAY
 #include"iter.h"
 
-Iterator CreateIter(int n){
-	Iterator* it = (Iterator*)malloc(sizeof(Iterator));
-	it->arr = (Element*)calloc(n*sizeof(Element));
+Iterator createIter(int n){
+	Iterator it = (Iterator)malloc(sizeof(iter));
+	it->arr = (Element*)calloc(n,sizeof(Element));
 	it->index = 0;
 	it->size = n;
+	return it;
+}
+
+void insert(Iterator it, Element e){
+	it->arr[it->index] = e;
+	it->index++;
 }
 
 bool hasNext(Iterator it){
-	if((it.index+1) == it.size) return false;
+	if((it->index+1) == it->size) return false;
 	else return true;
 }
 
 Element getNext(Iterator it){
 	if(hasNext(it)){
-		return it.arr[it.index++];
+		return it->arr[it->index++];
 	}
 	else return NULL;
 }

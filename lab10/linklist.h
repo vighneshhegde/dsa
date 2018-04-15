@@ -3,7 +3,9 @@
 
 #ifndef ELEMENT
 #define ELEMENT
-typedef struct element* Element;
+typedef struct{
+	int e;
+}Element;
 #endif
 
 typedef struct node{
@@ -17,6 +19,7 @@ typedef struct{
 	int length;
 }list;
 
+typedef list* List;
 
 list* newlist();
 void ins(list* ls, node *new);

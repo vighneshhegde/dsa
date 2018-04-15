@@ -1,5 +1,16 @@
 #include"graph.h"
 
+Graph readFile(FILE* f){
+	Graph g = createGraph();
+	vert v1,v2;
+	int i1,i2;
+	while(!feof(f)){
+		fscanf(f,"%d %d\n",&i1,&i2);
+		v1.val = i1; v1.val=i2;
+		g = addEdge(g, v1, v2);
+	}
+	return g;
+}
 
 Graph createGraph(int numV){
 	Graph g = (Graph)malloc(sizeof(graph));

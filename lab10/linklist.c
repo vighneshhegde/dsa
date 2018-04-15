@@ -9,7 +9,6 @@ list* newlist(){
 void ins(list* ls, node *new){
 //	node* new = (node*)malloc(sizeof(node));
 //	new->e = *e;
-	//new->e = (Element*)malloc(sizeof(Element));
 //	new->next = NULL;
 		
 	if(ls->length==0){

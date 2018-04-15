@@ -6,18 +6,32 @@ typedef struct {
 	int val;
 }vert;
 
+#define ELEM
+#define ELEMENT
+typedef vert Element;
+
+#ifdef ADJMAT
 typedef struct {
 	int nv;
 	int ne;
 	vert* V;
 	int** E;
 }graph;
+#endif
 
+#ifdef ADJLIST
+#include"linklist.h"
+
+typedef struct{
+	int nv;
+	int ne;
+	vert* V;
+	List* E;
+}graph;
+#endif
 typedef graph* Graph;
 
-#define ELEM
-typedef vert Element;
-
+Graph readFile(FILE* f);
 Graph createGraph(int numV);
 
 vert* getAdjacent(Graph g, vert v);

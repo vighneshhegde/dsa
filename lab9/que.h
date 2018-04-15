@@ -10,14 +10,14 @@ typedef struct {
 
 typedef enum { false, true } Boolean;
 
-typedef struct qnode{
+typedef struct node{
 	Element e;
-	struct qnode* next;
-}qnode;
+	struct node* next;
+}node;
   
 typedef struct{
-	qnode* head;
-	qnode* tail;
+	node* head;
+	node* tail;
 	int length;
 }Queue;
 

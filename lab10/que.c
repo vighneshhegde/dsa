@@ -33,7 +33,7 @@ Element front(Queue q){
 }
 
 void addQ(Queue *q, Element e){//add in the end using the tail
-	node* new = (node*)malloc(sizeof(node));
+	qnode* new = (qnode*)malloc(sizeof(qnode));
 	new->e = e;
 	new->next = NULL;
 	if(isEmptyQ(*q)){
